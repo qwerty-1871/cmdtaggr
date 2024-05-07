@@ -1,0 +1,11 @@
+Run "help" to output this information
+Run "tui" to use a guided interface
+
+Otherwise, cmdtaggr is controlled using the following commands:
+
+create [NameForTag] | Create a new tag
+list | Print a list of existing tags
+files [NameOfTag] | List the files in a tag
+add [NameOfTag] [FilesToAdd] | Add files to an existing tag
+remove [NameOfTag] [FilesToRemove] | Remove files from a tag
+delete [TagToDelete] | Delete a tag
