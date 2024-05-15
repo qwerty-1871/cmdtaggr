@@ -1,8 +1,8 @@
 # cmdtaggr
-cmdtaggr is a command-line program that manages a file-tagging system for Linux
-As of now, only the ext4 filesystem is supported
-I made this for a school project, any feedback is appreciated
-My email is qwerty1871@gmail.com and my Discord account is @qwerty1871 
+cmdtaggr is a command-line program that manages a file-tagging system for Linux  
+As of now, only the ext4 filesystem is supported  
+I made this for a school project, any feedback is appreciated  
+My email is qwerty1871@gmail.com and my Discord account is @qwerty1871  
 
 ## Installation
 Run the following commands to install cmdtaggr:
