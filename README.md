@@ -14,4 +14,5 @@ sudo chmod +x Install.sh
 ```
 
 ## Usage
-Run `cmdtaggr help` for a list of commands or `cmdtaggr tui` for a guided interface
+Run `cmdtaggr help` for a list of commands or `cmdtaggr tui` for a guided interface  
+There is a configuration file in ~/.cmdtaggr/config.sh. Instructions for its use are contained therein
