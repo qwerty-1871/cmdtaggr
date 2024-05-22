@@ -1,6 +1,6 @@
 # cmdtaggr
 cmdtaggr is a command-line program that manages a file-tagging system for Linux  
-As of now, only the ext4 filesystem is supported  
+As of now, only the ext4 filesystem is supported and files used are limited to the home directory(and subdirectories therein)
 I made this for a school project, any feedback is appreciated  
 My email is qwerty1871@gmail.com and my Discord account is @qwerty1871  
 
