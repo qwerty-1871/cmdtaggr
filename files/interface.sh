@@ -10,6 +10,7 @@ while [[ $run == 1 ]]; do
 	echo "c) Create a new tag"
 	echo "l) Print a list of existing tags"
 	echo "f) List the files in a tag"
+	echo "s) Search within a tag"
 	echo "a) Add files to an existing tag"
 	echo "r) Remove files from a tag"
 	echo "d) Delete a tag"
@@ -38,7 +39,7 @@ while [[ $run == 1 ]]; do
 				input=0
 			;;
 			l)
-				ls ~/cmdtaggr/tags
+				ls -p ~/.cmdtaggr/tags | grep -v /
 				read -p "Press ENTER to continue"
 				input=0
 			;;
@@ -49,9 +50,31 @@ while [[ $run == 1 ]]; do
 				  sudo debugfs -R "ncheck $line" $homesys >> ~/.cmdtaggr/fl 2> /dev/null
 				done
 				awk 'NR % 2 != 1{print $2}' ~/.cmdtaggr/fl
-				rm ~/.cmdtaggr/fl
+				if [[ $keepfl == 0 ]]; then 
+					rm ~/.cmdtaggr/fl
+				elif [[ $keepfl == 1 ]]; then
+					mv ~/.cmdtaggr/fl $tgdr/fl/$2
+				else
+					rm ~/.cmdtaggr/fl 
+					echo The keepfl value in config.sh is improperly configured.
+					echo Please ensure that it is set to either 1 or 0
+					echo By default, the file has been removed.
+				fi	
 				read -p "Press ENTER to continue"
 				input=0
+			;;
+			s)
+				echo "Which tag?"
+				read tagname
+					for line in $(cat $tgdr/$tagname); do
+				    sudo debugfs -R "ncheck $line" $homesys >> ~/.cmdtaggr/fl 2> /dev/null
+				done
+				awk 'NR % 2 != 1{print $2}' ~/.cmdtaggr/fl >> ~/.cmdtaggr/fls
+				rm ~/.cmdtaggr/fl
+				echo "Enter your search query"
+				read sinclair
+				grep "$sinclair" ~/.cmdtaggr/fls
+				rm ~/.cmdtaggr/fls
 			;;
 			a)
 				echo "What tag would you like to add to?"
